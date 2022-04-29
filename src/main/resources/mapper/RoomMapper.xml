@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luo.dao.RoomMapper">
+
+    <!--通过分页查询库房所有的信息-->
+    <select id="findRoomListByPage" resultType="com.luo.entity.Room">
+        select t1.*,t2.`name` as floorName,t3.`goodName` from t_room t1
+        inner join t_floor t2 on t2.`id`=t1.`floorId`
+        inner join t_good t3 on t3.`id`=t1.`goodId`
+        <where>
+            <if test="roomNum!=null and roomNum!=''">
+                and t1.roomNum like concat('%',#{roomNum},'%')
+            </if>
+            <if test="roomName!=null and roomName!=''">
+                and t1.roomName like concat('%',#{roomName},'%')
+            </if>
+            <if test="floorId!=null">
+                and t1.floorId = #{floorId}
+            </if>
+            <if test="goodId!=null">
+                and t1.goodId = #{goodId}
+            </if>
+        </where>
+        order by id
+    </select>
+
+    <!--添加库房-->
+    <insert id="addRoom">
+        insert into t_room (roomNum,roomName,floorId,goodId) values(#{roomNum},#{roomName},#{floorId},#{goodId})
+    </insert>
+
+    <!--修改库房-->
+    <update id="updateRoom">
+        update t_room
+        <set>
+            <if test="roomNum!=null and roomNum!=''">
+                roomNum=#{roomNum},
+            </if>
+            <if test="roomName!=null and roomName!=''">
+                roomName=#{roomName},
+            </if>
+            <if test="floorId!=null">
+                floorId=#{floorId},
+            </if>
+            <if test="goodId!=null">
+                goodId=#{goodId},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+</mapper>

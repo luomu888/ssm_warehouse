@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luo.dao.RoleMapper">
+   <!-- 通过分页查询角色所有的信息-->
+   <select id="findRoleList" resultType="com.luo.entity.Role">
+       select * from sys_role
+       <where>
+           <if test="roleName!=null and roleName!=''">
+               and roleName like concat('%',#{roleName},'%')
+           </if>
+       </where>
+   </select>
+
+    <!--添加角色-->
+    <insert id="addRole">
+        insert into sys_role (roleName,roleDesc) values(#{roleName},#{roleDesc})
+    </insert>
+
+    <!--修改角色-->
+    <update id="updateRole">
+        update sys_role
+        <set>
+            <if test="roleName!=null and roleName!=''">
+                roleName=#{roleName},
+            </if>
+            <if test="roleDesc!=null and roleDesc!=''">
+                roleDesc=#{roleDesc},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <!--通过角色编号（id）删除角色-->
+    <delete id="deleteById">
+        delete from sys_role where id=#{id}
+    </delete>
+
+    <!--查询所有角色列表-->
+    <select id="findRoleListByMap" resultType="map">
+        select * from sys_role
+    </select>
+
+    <!--根据员工ID查询该员工拥有的角色列表-->
+    <select id="findEmployeeRoleByEmployeeId" resultType="int">
+        select rid from sys_role_employee where eid=#{eid}
+    </select>
+</mapper>

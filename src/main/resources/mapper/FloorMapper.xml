@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luo.dao.FloorMapper">
+
+    <!--查询楼层列表-->
+    <select id="findFloorList" resultType="Floor">
+        select * from t_floor
+        <where>
+            <if test="name!=null and name!=''">
+                and name like concat('%',#{name},'%')
+            </if>
+        </where>
+    </select>
+
+    <!--添加楼层-->
+    <insert id="addFloor">
+        insert into t_floor(name,remark) values(#{name},#{remark})
+    </insert>
+
+    <!--修改楼层-->
+   <update id="updateFloor">
+       update t_floor
+       <set>
+           <if test="name!=null and name!=''">
+               name=#{name},
+           </if>
+           <if test="remark!=null and remark!=''">
+               remark=#{remark},
+           </if>
+       </set>
+       where id=#{id}
+   </update>
+
+</mapper>

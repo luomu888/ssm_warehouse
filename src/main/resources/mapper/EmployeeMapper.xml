@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luo.dao.EmployeeMapper">
+
+    <!--根据登录账号查询员工-->
+    <select id="findEmployeeByLoginName" resultType="com.luo.entity.Employee">
+            select * from sys_employee where loginName=#{loginName}
+    </select>
+
+    <!--通过部门id查询部门是否有员工-->
+    <select id="getEmployeeCountByDeptId" resultType="int">
+        select count(1) from sys_employee where deptId=#{deptId}
+    </select>
+
+    <!--通过角色id查询角色是否有员工-->
+    <select id="getEnployeeCountByRoleId" resultType="int">
+        select count(1) from sys_employee em
+        inner join sys_role_employee rm on em.id=rm.eid
+        where rm.rid=#{roleId}
+    </select>
+
+    <!--通过分页查询员工所有的信息-->
+    <select id="findEmployeeList" resultType="com.luo.entity.Employee">
+        select e.*,d.deptName from sys_employee e
+        inner join sys_dept d on e.deptId=d.id
+        <where>
+            <if test="loginName!=null and loginName!=''">
+                and e.loginName like concat('%',#{loginName},'%')
+            </if>
+            <if test="name!=null and name!=''">
+                and e.name like concat('%',#{name},'%')
+            </if>
+            <if test="sex!=null">
+                and e.sex=#{sex}
+            </if>
+            <if test="deptId!=null">
+                and e.deptId=#{deptId}
+            </if>
+            <if test="startDate!=null">
+                <![CDATA[and e.hireDate>=#{startDate}]]>
+            </if>
+            <if test="endDate!=null">
+                <!--有大小符号就用下面表示-->
+                <![CDATA[and e.hireDate<=#{endDate}]]>
+            </if>
+        </where>
+    </select>
+
+    <!--添加员工-->
+    <insert id="addEmployee">
+        insert into sys_employee(loginName,loginPwd,name,sex,deptId,hireDate,salt,createBy,createDate,remark)
+        values(#{loginName},#{loginPwd},#{name},#{sex},#{deptId},#{hireDate},#{salt},#{createBy},#{createDate},#{remark})
+    </insert>
+
+    <!--修改员工-->
+    <update id="updateEmployee">
+        update sys_employee
+        <set>
+            <if test="loginPwd!=null and loginPwd!=''">
+                loginPwd = #{loginPwd},
+            </if>
+            <if test="name!=null and name!=''">
+                name = #{name},
+            </if>
+            <if test="sex!=null">
+                sex = #{sex},
+            </if>
+            <if test="deptId!=null">
+                deptId = #{deptId},
+            </if>
+            <if test="hireDate!=null">
+                hireDate = #{hireDate},
+            </if>
+            <if test="salt!=null and salt!=''">
+                salt = #{salt},
+            </if>
+            <if test="remark!=null and remark!=''">
+                remark = #{remark},
+            </if>
+            <if test="modifyBy!=null">
+                modifyBy = #{modifyBy},
+            </if>
+            <if test="modifyDate!=null">
+                modifyDate = #{modifyDate},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteById">
+        delete from sys_employee where id=#{id}
+    </delete>
+
+    <delete id="deleteEmployeeAndRole">
+        delete from sys_role_employee where eid=#{eid}
+    </delete>
+</mapper>

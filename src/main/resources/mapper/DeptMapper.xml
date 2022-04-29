@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luo.dao.DeptMapper">
+
+    <!--查询部门所有的信息-->
+    <select id="findDeptListByPage" resultType="com.luo.entity.Dept">
+        select * from sys_dept
+        <where>
+            <if test="deptName!=null and deptName!=''">
+                and deptName like concat('%',#{deptName},'%')
+            </if>
+        </where>
+    </select>
+
+    <!--添加部门-->
+    <insert id="addDept">
+        insert into sys_dept (deptName,address,createDate,remark) values(#{deptName},#{address},#{createDate},#{remark})
+    </insert>
+
+    <!--修改部门-->
+    <update id="updateDept">
+        update sys_dept
+        <set>
+            <if test="deptName!=null and deptName!=''">
+                deptName=#{deptName},
+            </if>
+            <if test="address!=null and address!=''">
+                address=#{address},
+            </if>
+            <if test="remark!=null and remark!=''">
+                remark=#{remark},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <!--通过部门编号（id）删除部门-->
+    <delete id="deleteById">
+        delete from sys_dept where id=#{id}
+    </delete>
+
+    <select id="findDeptList" resultType="com.luo.entity.Dept">
+        select * from sys_dept
+    </select>
+
+    <!--查询部门下的人数-->
+    <select id="getDeptPie" resultType="com.luo.vo.DeptPieVO">
+        select d.deptName as name,count(e.deptId) as value from sys_employee as e join sys_dept d on e.deptId = d.id group by e.deptId
+    </select>
+</mapper>

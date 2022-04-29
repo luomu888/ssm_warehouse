@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luo.dao.GoodMapper">
+
+    <select id="findAllGood" resultType="com.luo.entity.Good">
+        select * from t_good
+    </select>
+
+    <!--通过分页查询库存所有的信息-->
+    <select id="findGoodListByPage" resultType="com.luo.entity.Good">
+        select * from t_good
+        <where>
+            <if test="goodName!=null and goodName!=''">
+                and goodName like concat('%',#{goodName},'%')
+            </if>
+        </where>
+    </select>
+
+    <!--添加商品-->
+    <insert id="addGood">
+        insert into t_good (goodName,goodNum,remark) values(#{goodName},#{goodNum},#{remark})
+    </insert>
+
+    <!--修改商品-->
+    <update id="updateGood">
+        update t_good
+        <set>
+            <if test="goodName!=null and goodName!=''">
+                goodName=#{goodName},
+            </if>
+            <if test="goodNum!=null">
+                goodNum=#{goodNum},
+            </if>
+            <if test="remark!=null and remark!=''">
+                remark=#{remark},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <!--删除商品-->
+    <delete id="deleteById">
+        delete from t_good where id=#{id}
+    </delete>
+
+</mapper>
