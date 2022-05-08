@@ -38,7 +38,7 @@
         <div class="layui-col-xs12 layui-col-md3">
 
             <div class="layui-card top-panel">
-                <div class="layui-card-header">要展示的指标名称</div>
+                <div class="layui-card-header">批发零售营销</div>
                 <div class="layui-card-body">
                     <div class="layui-row layui-col-space5">
                         <div class="layui-col-xs9 layui-col-md9 top-panel-number">
@@ -56,15 +56,15 @@
         <div class="layui-col-xs12 layui-col-md3">
 
             <div class="layui-card top-panel">
-                <div class="layui-card-header">要展示的指标名称</div>
+                <div class="layui-card-header">固定商家购入</div>
                 <div class="layui-card-body">
                     <div class="layui-row layui-col-space5">
                         <div class="layui-col-xs9 layui-col-md9 top-panel-number">
-                            9,054,056
+                            16,454,334
                         </div>
                         <div class="layui-col-xs3 layui-col-md3 top-panel-tips">
-                            比昨天 <a style="color: #1aa094">▲0.12</a><br>
-                            比七日 <a style="color: #bd3004">▼0.06</a>
+                            比昨天 <a style="color: #1aa094">▲0.22</a><br>
+                            比七日 <a style="color: #bd3004">▼0.16</a>
                         </div>
                     </div>
                 </div>
@@ -74,15 +74,15 @@
         <div class="layui-col-xs12 layui-col-md3">
 
             <div class="layui-card top-panel">
-                <div class="layui-card-header">要展示的指标名称</div>
+                <div class="layui-card-header">直销分享售出</div>
                 <div class="layui-card-body">
                     <div class="layui-row layui-col-space5">
                         <div class="layui-col-xs9 layui-col-md9 top-panel-number">
-                            9,054,056
+                            3,044,052
                         </div>
                         <div class="layui-col-xs3 layui-col-md3 top-panel-tips">
-                            比昨天 <a style="color: #1aa094">▲0.12</a><br>
-                            比七日 <a style="color: #bd3004">▼0.06</a>
+                            比昨天 <a style="color: #1aa094">▲0.53</a><br>
+                            比七日 <a style="color: #bd3004">▼0.36</a>
                         </div>
                     </div>
                 </div>
@@ -92,15 +92,15 @@
         <div class="layui-col-xs12 layui-col-md3">
 
             <div class="layui-card top-panel">
-                <div class="layui-card-header">要展示的指标名称</div>
+                <div class="layui-card-header">微商及网络直播</div>
                 <div class="layui-card-body">
                     <div class="layui-row layui-col-space5">
                         <div class="layui-col-xs9 layui-col-md9 top-panel-number">
-                            9,054,056
+                            1,344,052
                         </div>
                         <div class="layui-col-xs3 layui-col-md3 top-panel-tips">
-                            比昨天 <a style="color: #1aa094">▲0.12</a><br>
-                            比七日 <a style="color: #bd3004">▼0.06</a>
+                            比昨天 <a style="color: #1aa094">▲0.02</a><br>
+                            比七日 <a style="color: #bd3004">▼0.66</a>
                         </div>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
 
         var optionRecords = {
             title: {
-                text: '指标名称-报表图'
+                text: '主要收入-报表图'
             },
             tooltip: {
                 trigger: 'axis',
@@ -158,7 +158,7 @@
                 }
             },
             legend: {
-                data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
+                data: ['批发零售', '商家购入', '直销分享', '微商直播', '访问流量']
             },
             toolbox: {
                 feature: {
@@ -185,34 +185,34 @@
             ],
             series: [
                 {
-                    name: '邮件营销',
+                    name: '批发零售',
                     type: 'line',
                     stack: '总量',
                     areaStyle: {},
                     data: [120, 132, 101, 134, 90, 230, 210]
                 },
                 {
-                    name: '联盟广告',
+                    name: '商家购入',
                     type: 'line',
                     areaStyle: {},
                     data: [220, 182, 191, 234, 290, 330, 310]
                 },
                 {
-                    name: '视频广告',
+                    name: '直销分享',
                     type: 'line',
                     stack: '总量',
                     areaStyle: {},
                     data: [150, 232, 201, 154, 190, 330, 410]
                 },
                 {
-                    name: '直接访问',
+                    name: '微商直播',
                     type: 'line',
                     stack: '总量',
                     areaStyle: {},
                     data: [320, 332, 301, 334, 390, 330, 320]
                 },
                 {
-                    name: '搜索引擎',
+                    name: '访问流量',
                     type: 'line',
                     stack: '总量',
                     label: {
@@ -235,7 +235,7 @@
         var echartsPies = echarts.init(document.getElementById('echarts-pies'), 'walden');
         var optionPies = {
             title: {
-                text: '指标名称-玫瑰图',
+                text: '流量访问-玫瑰图',
                 left: 'center'
             },
             tooltip: {
@@ -283,12 +283,12 @@
             legend: {},
             tooltip: {},
             dataset: {
-                dimensions: ['product', '2015', '2016', '2017'],
+                dimensions: ['product', '2020', '2021', '2022'],
                 source: [
-                    {product: 'Matcha Latte', '2015': 43.3, '2016': 85.8, '2017': 93.7},
-                    {product: 'Milk Tea', '2015': 83.1, '2016': 73.4, '2017': 55.1},
-                    {product: 'Cheese Cocoa', '2015': 86.4, '2016': 65.2, '2017': 82.5},
-                    {product: 'Walnut Brownie', '2015': 72.4, '2016': 53.9, '2017': 39.1}
+                    {product: '品牌手机', '2020': 43.3, '2021': 85.8, '2022': 93.7},
+                    {product: '平板电脑', '2020': 83.1, '2021': 73.4, '2022': 55.1},
+                    {product: '硬件设备', '2020': 86.4, '2021': 65.2, '2022': 82.5},
+                    {product: '外接产品', '2020': 72.4, '2021': 53.9, '2022': 39.1}
                 ]
             },
             xAxis: {type: 'category'},
@@ -319,11 +319,11 @@
             },
             dataset: {
                 source: [
-                    ['product', '2012', '2013', '2014', '2015', '2016', '2017'],
-                    ['Matcha Latte', 41.1, 30.4, 65.1, 53.3, 83.8, 98.7],
-                    ['Milk Tea', 86.5, 92.1, 85.7, 83.1, 73.4, 55.1],
-                    ['Cheese Cocoa', 24.1, 67.2, 79.5, 86.4, 65.2, 82.5],
-                    ['Walnut Brownie', 55.2, 67.1, 69.2, 72.4, 53.9, 39.1]
+                    ['product', '2017', '2018', '2019', '2020', '2021', '2022'],
+                    ['品牌手机', 41.1, 30.4, 65.1, 53.3, 83.8, 98.7],
+                    ['平板电脑', 86.5, 92.1, 85.7, 83.1, 73.4, 55.1],
+                    ['硬件设备', 24.1, 67.2, 79.5, 86.4, 65.2, 82.5],
+                    ['外接产品', 55.2, 67.1, 69.2, 72.4, 53.9, 39.1]
                 ]
             },
             xAxis: {type: 'category'},
@@ -340,12 +340,12 @@
                     radius: '30%',
                     center: ['50%', '25%'],
                     label: {
-                        formatter: '{b}: {@2012} ({d}%)'
+                        formatter: '{b}: {@2017} ({d}%)'
                     },
                     encode: {
                         itemName: 'product',
-                        value: '2012',
-                        tooltip: '2012'
+                        value: '2017',
+                        tooltip: '2017'
                     }
                 }
             ]
