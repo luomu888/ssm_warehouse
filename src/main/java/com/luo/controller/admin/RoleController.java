@@ -181,7 +181,6 @@ public class RoleController {
                     flag = true;//选中该角色
                     break;
                 }
-
             }
             //将比较完后的状态保存到map中
             map.put("LAY_CHECKED", flag);

@@ -59,7 +59,7 @@ public class MenuController {
         homeInfo.put("title", "首页");
         homeInfo.put("href", "/admin/desktop.html");
 
-        logoInfo.put("title", "仓库管理系统");
+        logoInfo.put("title", "管理平台");
         logoInfo.put("image", "/statics/layui/images/logo.png");
         logoInfo.put("href", "/admin/home.html");
 

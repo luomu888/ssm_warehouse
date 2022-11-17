@@ -26,9 +26,11 @@ public class TreeUtil {
     private static MenuNode findChildren(MenuNode parent, List<MenuNode> treeList) {
         for (MenuNode child : treeList) {
             if (parent.getId() .equals(child.getPid())) {
+                // 创建集合
                 if (parent.getChild() == null) {
                     parent.setChild(new ArrayList<MenuNode>());
                 }
+                // 添加到集合
                 parent.getChild().add(findChildren(child, treeList));
             }
         }

@@ -165,7 +165,7 @@
                         <button type="button" class="layui-btn" lay-submit lay-filter="doSubmit"><span
                                 class="layui-icon layui-icon-add-1"></span>提交
                         </button>
-                        <button type="button" class="layui-btn layui-btn-warm"><span
+                        <button type="reset" class="layui-btn layui-btn-warm"><span
                                 class="layui-icon layui-icon-refresh-1"></span>重置
                         </button>
                     </div>

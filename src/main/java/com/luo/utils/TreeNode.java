@@ -14,9 +14,9 @@ public class TreeNode {
     @JsonProperty(value = "parentId")
     private Integer pid;//父节点菜单编号
     private String title;//菜单节点名称
-    private String icon;//菜单节点图标
     private String href;//菜单路径
     private Boolean spread;//是否展开
+    private String icon;//菜单节点图标
     //子节点菜单
     private List<TreeNode> children = new ArrayList<TreeNode>();
 

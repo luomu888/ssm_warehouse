@@ -184,6 +184,7 @@
 
         //监听dtree树节点的点击事件
         dtree.on("node(menuTree)", function (obj) {
+            console.log(obj)
             tableIns.reload({
                 where: {
                     //设定容器唯一 id。id 是对表格的数据操作方法(给回数据库)上是必要的传递条件，它是表格容器的索引
