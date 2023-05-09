@@ -24,17 +24,33 @@ admin 123456
 
 - 下载导入即可
 
+IDEA部署详细步骤：
 
+1. 下载解压，然后打开IDEA导入项目
 
+![image-20230509171400039](https://cdn.jsdelivr.net/gh/luomu888/cloudimg@master/img2/image-20230509171400039.png)
 
+2. 修改配置信息，添加库和导入SQL语句创建表
 
+![image-20230509171937457](https://cdn.jsdelivr.net/gh/luomu888/cloudimg@master/img2/image-20230509171937457.png)
 
+3. 添加本地Tomcat
 
+![image-20230509172504656](https://cdn.jsdelivr.net/gh/luomu888/cloudimg@master/img2/image-20230509172504656.png)
 
+![image-20230509172535393](https://cdn.jsdelivr.net/gh/luomu888/cloudimg@master/img2/image-20230509172535393.png)
 
+![image-20230509172631709](https://cdn.jsdelivr.net/gh/luomu888/cloudimg@master/img2/image-20230509172631709.png)
 
+![image-20230509172703699](https://cdn.jsdelivr.net/gh/luomu888/cloudimg@master/img2/image-20230509172703699.png)
 
+![image-20230509172744634](https://cdn.jsdelivr.net/gh/luomu888/cloudimg@master/img2/image-20230509172744634.png)
 
+![image-20230509172805480](https://cdn.jsdelivr.net/gh/luomu888/cloudimg@master/img2/image-20230509172805480.png)
+
+4. 启动项目
+
+![image-20230509172925652](https://cdn.jsdelivr.net/gh/luomu888/cloudimg@master/img2/image-20230509172925652.png)
 
 
 
